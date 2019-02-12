@@ -3,6 +3,10 @@ import Input from './component/Input';
 import TransactionTable from './component/TransactionTable';
 import _ from 'lodash';
 
+const MIN_SUP = 20;
+const MIN_CON = 20;
+const NUM_TRANS = 5;
+
 export default class App extends Component {
 
   items = [];
@@ -13,9 +17,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numTrans: 5,
-      minSup: 0,
-      minCon: 0,
+      numTrans: NUM_TRANS,
+      minSup: MIN_SUP,
+      minCon: MIN_CON,
       resultLength: '',
       result: '',
     };
@@ -23,10 +27,10 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Apiori App</h1>
-        <Input name="minSup" title="Minimum support" onChange={this.handleInput} placeholder={0 + ''} />
-        <Input name="minCon" title="Minimum confidence" onChange={this.handleInput} placeholder={0 + ''} />
-        <Input name="numTrans" title="Number of transaction" onChange={this.handleInput} placeholder={10 + ''} />
+        <h1>Apiori Algorithm Calculator</h1>
+        <Input name="minSup" title="Minimum support" onChange={this.handleInput} placeholder={MIN_SUP + ''} />
+        <Input name="minCon" title="Minimum confidence" onChange={this.handleInput} placeholder={MIN_CON + ''} />
+        <Input name="numTrans" title="Number of transaction" onChange={this.handleInput} placeholder={NUM_TRANS + ''} />
         <p>กรุณากรอกข้อมูลโดยเว้นวรรคระหว่างแต่ละ item เช่น A B C</p>
         <TransactionTable n={this.state.numTrans} onInput={this.handleTable} />
         <button onClick={this.handleClick}>Calculate</button>
@@ -46,6 +50,7 @@ export default class App extends Component {
 
   handleTable = (inputs) => {
     this.transactionTable = inputs;
+    console.log(inputs);
   }
 
   handleClick = (e) => {
