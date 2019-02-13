@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/apiori-algorithm/precache-manifest.1882d0795f781df347cf74a40e3e871a.js"
+  "/apiori-algorithm/precache-manifest.22bc3844cde865673d009b3dfa17004f.js"
 );
 
 workbox.clientsClaim();
