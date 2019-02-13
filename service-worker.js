@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/apiori-algorithm/precache-manifest.22bc3844cde865673d009b3dfa17004f.js"
+  "/React_Redux_Apori_DM/precache-manifest.bb2dd22243377114beecf6996006b69d.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/apiori-algorithm/index.html", {
+workbox.routing.registerNavigationRoute("/React_Redux_Apori_DM/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
