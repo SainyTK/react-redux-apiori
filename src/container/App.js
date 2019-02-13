@@ -35,7 +35,7 @@ class App extends Component {
         <Input name="minCon" title="Minimum confidence" onBlur={this.handleInput} placeholder={MIN_CON + ''} />
         <Input name="numTrans" title="Number of transaction" onBlur={this.handleInput} placeholder={NUM_TRANS + ''} />
         <p>กรุณากรอกข้อมูลโดยเว้นวรรคระหว่างแต่ละ item เช่น A B C</p>
-        <TransactionTable/>
+        <TransactionTable />
         <button onClick={this.handleClick}>Calculate</button>
         {this.state.resultLength && <p>{this.state.resultLength}</p>}
         {this.state.result && <p>{this.state.result}</p>}
@@ -70,9 +70,6 @@ class App extends Component {
       //reset
       itemSet = [];
     }
-
-    console.log(this.freqItemSet);
-
     this.showResult();
   }
 
@@ -81,7 +78,7 @@ class App extends Component {
     this.props.transTable.forEach((transaction) => {
       const transactionItems = transaction.trim().split(' ');
       transactionItems.forEach((item) => {
-        const notExist = !this.items.find((i) => i+'' === item+'');
+        const notExist = !this.items.find((i) => i + '' === item + '');
         if (notExist) {
           this.items.push(item);
         }
@@ -92,7 +89,7 @@ class App extends Component {
 
   generateSets = (results, current, items, start, size) => {
     if (size === 0) {
-      return results.push(current.slice(0,-1));
+      return results.push(current.slice(0, -1));
     }
 
     for (let i = start; i <= items.length; i++) {
@@ -106,7 +103,10 @@ class App extends Component {
     const candidates = {};
     itemSet.forEach((sItems) => {
       //each item in itemset eg. ['AB'], ['BC']: item = ['AB']
-      if (!this.isUnFreq(sItems)) {
+      const isFreq = !this.isUnFreq(sItems);
+      console.log(`unFreqItemset: `, this.unFreqItemSet);
+      console.log(`isFreq: ${isFreq}, sItems: `, sItems);
+      if (isFreq) {
         candidates[sItems] = 0;
         this.props.transTable.forEach((transaction) => {
           //each item in transactionTable eg. transaction = 'A B C D' => ['A1','B2','C3','D']
@@ -146,7 +146,12 @@ class App extends Component {
     });
   }
 
-  isUnFreq = (item) => !!Object.entries(this.unFreqItemSet).find((unFreqItem) => unFreqItem === item)
+  isUnFreq = (items) => (
+    Object.keys(this.unFreqItemSet)
+      .find((unFreqItem) => (
+        !!items.split(',').find(item => unFreqItem === item
+        )))
+  )
 
   showResult = () => {
     const results = _.range(this.items.length).map(() => []);

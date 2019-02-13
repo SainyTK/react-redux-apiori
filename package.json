@@ -2,7 +2,7 @@
   "name": "apiori-app",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://tanakorn0314.github.io/React_Redux_Apori_DM/",
+  "homepage": "https://tanakorn0314.github.io/react-redux-apiori/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
