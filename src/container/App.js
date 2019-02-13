@@ -61,10 +61,14 @@ class App extends Component {
     this.unFreqItemSet = {};
 
     this.generateItemsFromInput();
+    console.log('items : ', this.items);
     for (let i = 1; i < this.props.numTrans; i++) {
       this.generateSets(itemSet, '', this.items, 0, i);
+      console.log(`itemSet size = ${i} : `, itemSet);
       const candidates = this.createCandidates(itemSet);
       this.filterFreqItemSet(candidates);
+      //reset
+      itemSet = [];
     }
 
     console.log(this.freqItemSet);
@@ -100,25 +104,26 @@ class App extends Component {
 
   createCandidates = (itemSet) => {
     const candidates = {};
-    itemSet.forEach((item) => {
+    itemSet.forEach((sItems) => {
       //each item in itemset eg. ['AB'], ['BC']: item = ['AB']
-      if (!this.isUnFreq(item)) {
-        candidates[item] = 0;
+      if (!this.isUnFreq(sItems)) {
+        candidates[sItems] = 0;
         this.props.transTable.forEach((transaction) => {
-          //each item in transactionTable eg. transaction = 'A B C D' => ['A','B','C','D']
+          //each item in transactionTable eg. transaction = 'A B C D' => ['A1','B2','C3','D']
           const tItems = transaction.trim().split(' ');
           let count = 0;
           tItems.forEach((tItem) => {
-            //tItem item in a transaction eg.: tItem = 'A', 'B', 'C'
-            for (let i = 0; i < item.length; i++) {
-              if (tItem === item.charAt(i)) {
+            //tItem item in a transaction eg.: tItem = 'A1', 'A2', 'A3'
+            const sItem = sItems.split(',');
+            sItem.forEach((i) => {
+              if (tItem === i) {
                 count++;
-                if (count === item.length) {
-                  candidates[item]++;
-                  break;
-                }
               }
-            }
+              if (count === sItem.length) {
+                candidates[sItems]++;
+                return;
+              }
+            });
           });
         });
       }
