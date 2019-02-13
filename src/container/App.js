@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import '../styles/app.css';
 import Input from '../component/Input';
 import TransactionTable from './TransactionTable';
 import _ from 'lodash';
