@@ -1,13 +1,13 @@
 {
-  "main.css": "/React_Redux_Apiori_DM/static/css/main.92afb118.chunk.css",
-  "main.js": "/React_Redux_Apiori_DM/static/js/main.cf1c4092.chunk.js",
-  "main.js.map": "/React_Redux_Apiori_DM/static/js/main.cf1c4092.chunk.js.map",
-  "runtime~main.js": "/React_Redux_Apiori_DM/static/js/runtime~main.bdf0b0a5.js",
-  "runtime~main.js.map": "/React_Redux_Apiori_DM/static/js/runtime~main.bdf0b0a5.js.map",
-  "static/js/2.df1bb44f.chunk.js": "/React_Redux_Apiori_DM/static/js/2.df1bb44f.chunk.js",
-  "static/js/2.df1bb44f.chunk.js.map": "/React_Redux_Apiori_DM/static/js/2.df1bb44f.chunk.js.map",
-  "index.html": "/React_Redux_Apiori_DM/index.html",
-  "precache-manifest.66ec1b8243a72e4f72245279d0e2dbd6.js": "/React_Redux_Apiori_DM/precache-manifest.66ec1b8243a72e4f72245279d0e2dbd6.js",
-  "service-worker.js": "/React_Redux_Apiori_DM/service-worker.js",
-  "static/css/main.92afb118.chunk.css.map": "/React_Redux_Apiori_DM/static/css/main.92afb118.chunk.css.map"
+  "main.css": "/apiori/static/css/main.92afb118.chunk.css",
+  "main.js": "/apiori/static/js/main.ed3c661d.chunk.js",
+  "main.js.map": "/apiori/static/js/main.ed3c661d.chunk.js.map",
+  "runtime~main.js": "/apiori/static/js/runtime~main.0708dd77.js",
+  "runtime~main.js.map": "/apiori/static/js/runtime~main.0708dd77.js.map",
+  "static/js/2.df1bb44f.chunk.js": "/apiori/static/js/2.df1bb44f.chunk.js",
+  "static/js/2.df1bb44f.chunk.js.map": "/apiori/static/js/2.df1bb44f.chunk.js.map",
+  "index.html": "/apiori/index.html",
+  "precache-manifest.73d6555fabca9d009fd2ec8469a5ee42.js": "/apiori/precache-manifest.73d6555fabca9d009fd2ec8469a5ee42.js",
+  "service-worker.js": "/apiori/service-worker.js",
+  "static/css/main.92afb118.chunk.css.map": "/apiori/static/css/main.92afb118.chunk.css.map"
 }
