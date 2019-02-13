@@ -1,13 +1,18 @@
-import React, { Component } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Input extends Component {
-  render() {
-      const { title, name, placeholder, onChange } = this.props;
-    return (
-      <div>
-        <div>{title}</div>
-        <input name={name} type='text' onChange={onChange} placeholder={placeholder}/>
-      </div>
-    );
-  }
+const Input = ({ title, name, placeholder, onBlur }) => (
+  <div>
+    <div>{title}</div>
+    <input name={name} type='text' onBlur={onBlur} placeholder={placeholder} />
+  </div>
+)
+
+Input.propTypes = {
+  title: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  onBlur: PropTypes.func
 }
+
+export default Input;
