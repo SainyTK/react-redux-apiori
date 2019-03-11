@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { edit } from '../actions/action';
-import {
-  EDIT_TRANS_TABLE
-} from '../actions/actionTypes';
+import Actions from '../redux/app/actions';
 
 class TransactionTable extends Component {
+
+    state = {
+        transTableString:[]
+    }
 
     render() {
         const { numTrans } = this.props;
@@ -38,16 +39,11 @@ class TransactionTable extends Component {
 
     handleFocusOut = (e) => {
         const { name, value } = e.target;
-        let { transTable } = this.props;
-        transTable[name] = value;
+        let { transTableString } = this.state;
+        transTableString[name] = value;
 
-        this.props.dispatch(edit(EDIT_TRANS_TABLE, transTable));
+        this.props.setTransTable(transTableString);
     }
 }
 
-const mapStateToProps = state => ({
-    numTrans: state.numTrans,
-    transTable: state.transTable
-});
-
-export default connect(mapStateToProps)(TransactionTable);
+export default connect(state => state.App, Actions)(TransactionTable);
